@@ -166,6 +166,35 @@
             color: #666;
         }
 
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 0.95em;
+        }
+
+        .nav-links a:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-links a.active {
+            background: #764ba2;
+        }
+
         .print-button {
             background: #667eea;
             color: white;
@@ -189,7 +218,8 @@
                 background: white;
                 padding: 0;
             }
-            .print-button {
+            .print-button,
+            .nav-links {
                 display: none;
             }
         }
@@ -207,6 +237,12 @@
         <div class="header">
             <h1>CONTRATO DE SERVICIOS</h1>
             <p>Fotografía y Video para Evento Social</p>
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html">🎉 Invitación</a>
+            <a href="contrato.html" class="active">📄 Contrato</a>
+            <a href="logistica.html">📋 Logística</a>
         </div>
 
         <div class="section">

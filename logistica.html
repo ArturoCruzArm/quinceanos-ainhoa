@@ -259,6 +259,36 @@
             }
         }
 
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 10px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 0.95em;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.9);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-links a.active {
+            background: #764ba2;
+            color: white;
+        }
+
         .print-button {
             background: #667eea;
             color: white;
@@ -279,7 +309,8 @@
             body {
                 background: white;
             }
-            .print-button {
+            .print-button,
+            .nav-links {
                 display: none;
             }
         }
@@ -291,6 +322,12 @@
             <h1>📋 Logística del Evento</h1>
             <p>XV Años - Ainhoa Alejandra Vera González</p>
             <p style="font-size: 1em; margin-top: 10px;">Sábado, 20 de Diciembre de 2025</p>
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html">🎉 Invitación</a>
+            <a href="contrato.html">📄 Contrato</a>
+            <a href="logistica.html" class="active">📋 Logística</a>
         </div>
 
         <div class="content">
