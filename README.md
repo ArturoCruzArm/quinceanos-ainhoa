@@ -34,6 +34,7 @@ Detalles del cronograma y logística del evento
 
 Arturo Cruz - Producción Audiovisual
 - 📍 Padilla 112, Cumbres de Arbide
+- 📱 WhatsApp: 477 920 3776
 
 ---
 
