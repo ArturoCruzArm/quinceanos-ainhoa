@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logística del Evento - XV Años Ainhoa</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .logistics-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, #667eea, #764ba2);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding-left: 100px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 38px;
+            top: 0;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: #667eea;
+            border: 4px solid white;
+            box-shadow: 0 0 0 3px #667eea;
+        }
+
+        .time-badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .timeline-content {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .timeline-content h3 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .timeline-content p {
+            color: #666;
+            line-height: 1.6;
+            margin: 5px 0;
+        }
+
+        .location-card {
+            background: white;
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+
+        .location-card h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .location-card a {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 10px;
+            transition: all 0.3s;
+        }
+
+        .location-card a:hover {
+            background: #764ba2;
+            transform: translateX(5px);
+        }
+
+        .section {
+            margin: 30px 0;
+        }
+
+        .section h2 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #764ba2;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .info-box .icon {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .info-box h3 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .info-box p {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        .checklist {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .checklist ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .checklist li {
+            padding: 12px;
+            margin: 8px 0;
+            background: white;
+            border-radius: 5px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s;
+        }
+
+        .checklist li:hover {
+            transform: translateX(5px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .checklist li::before {
+            content: "✓";
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            color: white;
+            border: none;
+            margin-bottom: 20px;
+        }
+
+        .contact-section p {
+            font-size: 1.1em;
+            margin: 10px 0;
+        }
+
+        .contact-section a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                padding-left: 60px;
+            }
+
+            .timeline-item::before {
+                left: 8px;
+            }
+
+            .header h1 {
+                font-size: 1.8em;
+            }
+        }
+
+        .print-button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            display: block;
+            margin: 20px auto;
+        }
+
+        .print-button:hover {
+            background: #764ba2;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .print-button {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="logistics-container">
+        <div class="header">
+            <h1>📋 Logística del Evento</h1>
+            <p>XV Años - Ainhoa Alejandra Vera González</p>
+            <p style="font-size: 1em; margin-top: 10px;">Sábado, 20 de Diciembre de 2025</p>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h2>🕐 Cronograma del Día</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="time-badge">6:00 PM</span>
+                        <div class="timeline-content">
+                            <h3>Llegada del Equipo de Producción</h3>
+                            <p>El equipo de fotografía y video llegará al Templo de Santa Teresita</p>
+                            <p><strong>Nota:</strong> Preparación de equipos y reconocimiento del lugar</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <span class="time-badge">6:30 PM</span>
+                        <div class="timeline-content">
+                            <h3>Llegada de Invitados</h3>
+                            <p>Se recomienda que los invitados lleguen con anticipación</p>
+                            <p><strong>Cobertura:</strong> Fotografías de llegada de invitados</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <span class="time-badge">7:00 PM</span>
+                        <div class="timeline-content">
+                            <h3>🙏 Ceremonia Religiosa</h3>
+                            <p><strong>Duración aproximada:</strong> 45-60 minutos</p>
+                            <div class="location-card">
+                                <h4>📍 Templo de Santa Teresita</h4>
+                                <p>Se realizará cobertura fotográfica y de video completa de la ceremonia</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <span class="time-badge">8:00 PM</span>
+                        <div class="timeline-content">
+                            <h3>🚗 Traslado al Salón</h3>
+                            <p>El equipo se trasladará al salón de fiestas</p>
+                            <div class="location-card">
+                                <h4>📍 Salón de Fiestas</h4>
+                                <p>Ubicación del evento de recepción</p>
+                                <a href="https://maps.app.goo.gl/Rc1vudPT85M9g4hc9?g_st=aw" target="_blank">🗺️ Ver en Google Maps</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <span class="time-badge">8:30 PM</span>
+                        <div class="timeline-content">
+                            <h3>🎉 Inicio de Recepción</h3>
+                            <p>Recibimiento de invitados en el salón</p>
+                            <p><strong>Cobertura:</strong> Entrada de la quinceañera, bienvenida, decoración</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <span class="time-badge">9:00 PM - 2:00 AM</span>
+                        <div class="timeline-content">
+                            <h3>🎊 Fiesta y Celebración</h3>
+                            <p><strong>Eventos a cubrir:</strong></p>
+                            <ul style="margin-top: 10px; padding-left: 20px;">
+                                <li>Vals de la quinceañera</li>
+                                <li>Cambio de zapatillas</li>
+                                <li>Baile con el padre</li>
+                                <li>Entrega de corona</li>
+                                <li>Brindis</li>
+                                <li>Pastel</li>
+                                <li>Baile general y ambiente</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>📌 Información Importante</h2>
+                <div class="info-grid">
+                    <div class="info-box">
+                        <div class="icon">📸</div>
+                        <h3>Fotografía</h3>
+                        <p>Cobertura completa digital con edición profesional</p>
+                    </div>
+                    <div class="info-box">
+                        <div class="icon">🎥</div>
+                        <h3>Video</h3>
+                        <p>Cobertura de misa y recepción con edición cinematográfica</p>
+                    </div>
+                    <div class="info-box">
+                        <div class="icon">⏱️</div>
+                        <h3>Duración</h3>
+                        <p>Aproximadamente 6 horas de cobertura</p>
+                    </div>
+                    <div class="info-box">
+                        <div class="icon">📦</div>
+                        <h3>Entrega</h3>
+                        <p>Material editado en 30 días máximo</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>✅ Lista de Verificación</h2>
+                <div class="checklist">
+                    <h3 style="color: #667eea; margin-bottom: 15px;">Una semana antes del evento:</h3>
+                    <ul>
+                        <li>Confirmar horarios con el templo</li>
+                        <li>Confirmar horarios con el salón de fiestas</li>
+                        <li>Confirmar número final de invitados</li>
+                        <li>Verificar playlist de música para el vals</li>
+                        <li>Confirmar coordinación de colores para vestuario</li>
+                    </ul>
+
+                    <h3 style="color: #667eea; margin: 20px 0 15px 0;">Un día antes del evento:</h3>
+                    <ul>
+                        <li>Última confirmación con el equipo de producción</li>
+                        <li>Verificar que el saldo pendiente esté listo</li>
+                        <li>Preparar lista de tomas especiales deseadas</li>
+                        <li>Compartir números de contacto de emergencia</li>
+                    </ul>
+
+                    <h3 style="color: #667eea; margin: 20px 0 15px 0;">Día del evento:</h3>
+                    <ul>
+                        <li>El equipo llegará 1 hora antes de la misa</li>
+                        <li>Tener lista de familiares para fotos grupales</li>
+                        <li>Designar un coordinador del evento</li>
+                        <li>Entregar saldo pendiente ($2,900 pesos)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>📋 Resumen del Servicio</h2>
+                <div class="checklist">
+                    <h3 style="color: #667eea; margin-bottom: 15px;">Servicios Incluidos:</h3>
+                    <ul>
+                        <li>Fotógrafo profesional durante todo el evento</li>
+                        <li>Camarógrafo profesional durante todo el evento</li>
+                        <li>Edición profesional de todas las fotografías</li>
+                        <li>Edición profesional del video con música</li>
+                        <li>Entrega digital del material completo</li>
+                    </ul>
+
+                    <h3 style="color: #667eea; margin: 20px 0 15px 0;">NO Incluidos (según contrato):</h3>
+                    <ul style="list-style: none;">
+                        <li style="color: #999; border-left-color: #999;">Sesión previa de fotografías</li>
+                        <li style="color: #999; border-left-color: #999;">Servicio de dron</li>
+                        <li style="color: #999; border-left-color: #999;">Invitaciones web personalizadas</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="contact-section">
+                <h2>📞 Contacto de Emergencia</h2>
+                <p><strong>Arturo Cruz - Producción Audiovisual</strong></p>
+                <p>📍 Dirección: Padilla 112, Cumbres de Arbide</p>
+                <p>📱 WhatsApp: [Número de contacto]</p>
+                <p style="margin-top: 20px; font-size: 0.9em;">
+                    Para cualquier duda o cambio de último momento, contactar directamente
+                </p>
+            </div>
+
+            <button class="print-button" onclick="window.print()">🖨️ Imprimir Logística</button>
+        </div>
+    </div>
+</body>
+</html>
